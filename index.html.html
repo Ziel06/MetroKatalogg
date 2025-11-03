@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Metro Ayakkabı | Premium Perakende Koleksiyonu</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* FONTLAR */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa; /* Açık gri arka plan */
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif; /* Başlıklar için daha premium font */
+            font-weight: 700;
+        }
+
+        /* ------------------------------------------------ */
+        /* NAVBAR VE GENEL STİL */
+        /* ------------------------------------------------ */
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .nav-link.active {
+            color: #ff0000 !important;
+            border-bottom: 2px solid #ff0000;
+        }
+        .btn-primary {
+            background-color: #ff0000; 
+            border-color: #006eff;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: hsl(212, 100%, 62%);
+            border-color: #b30000;
+            transform: translateY(-2px);
+        }
+
+        /* ------------------------------------------------ */
+        /* VİZYONER HERO ALANI */
+        /* ------------------------------------------------ */
+        .hero-vizyon {
+            background-color: #000000;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .hero-vizyon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* GÖRSEL EFEKT: Resmi değiştirin */
+            background: url('hero-perakende-vizyon.jpeg') no-repeat center center fixed; 
+            background-size: cover;
+            opacity: 0.3; /* Metin okunurluğu için şeffaflık */
+            z-index: 1;
+        }
+        .hero-vizyon .content-layer {
+            position: relative;
+            z-index: 2;
+            color: white;
+            width: 100%;
+            padding: 50px 0;
+        }
+        .hero-vizyon h1 {
+            font-size: 5rem;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 1);
+        }
+        .hero-vizyon p {
+            font-size: 1.6rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* ------------------------------------------------ */
+        /* KATEGORİ VE ÜRÜN KARTLARI */
+        /* ------------------------------------------------ */
+
+        /* Kategori Kartları */
+        .category-card {
+            border: none;
+            border-radius: 1rem; /* Daha fazla yuvarlaklık */
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Hafif gölge */
+            position: relative;
+        }
+        .category-card:hover {
+            transform: translateY(-8px); /* 3D Efekt */
+            box-shadow: 0 15px 35px rgba(255, 0, 0, 0.2); /* Kırmızı vurgulu gölge */
+        }
+        .category-card img {
+            width: 100%;
+            height: 300px; 
+            object-fit: cover;
+        }
+        .category-card .card-body {
+            background-color: white;
+            text-align: center;
+            padding: 25px;
+        }
+        .category-card .card-title {
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+        .category-card .card-text {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        /* Ürün Kartları */
+        .product-card {
+            border: none;
+            border-radius: 1rem;
+            transition: box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            border-radius: 1rem 1rem 0 0;
+            height: 350px;
+            object-fit: cover;
+        }
+        .badge-kirmizi {
+            background-color: #ff0000;
+            color: white;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* ------------------------------------------------ */
+        /* FOOTER */
+        /* ------------------------------------------------ */
+        .footer {
+            background-color: #1a1a1a;
+            color: #f8f9fa;
+            padding: 60px 0 20px;
+        }
+        .footer h5 {
+            color: #ff0000; 
+        }
+        .footer a {
+            color: #ced4da;
+        }
+        .footer a:hover {
+            color: #ffffff;
+        }
+        .footer .social-icons a {
+             border: 1px solid #ced4da;
+        }
+        .footer .social-icons a:hover {
+            background-color: #ff0000;
+            border-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand text-dark" href="index.html">
+                <i class="fas fa-shoe-prints me-2" style="color:#ff0000;"></i> METRO AYAKKABI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="index.html">TOPTAN AYAKKABI MODELLERİ</a>
+                </ul>
+                <div class="d-flex">
+                    <a href="#urunler" class="btn btn-primary rounded-pill px-4 fw-bold">Online Mağaza</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-vizyon">
+        <div class="content-layer container">
+            <h1 class="display-1">KONFOR VE STİL METRO AYAKKABI </h1>
+            <p>Sezonun en parlayan en kaliteli ürünleri için sizde Metroya gelin!!.</p>
+            <a href="#kategoriler" class="btn btn-light btn-lg mt-3 rounded-pill px-5 py-3 fw-bold text-dark">KATALOĞU KEŞFET <i class="fas fa-arrow-down ms-2"></i></a>
+             
+        </div>
+    
+    </header>
+
+    <section id="kategoriler" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 display-4 text-dark">Sizlere En özel Ayakkabılar</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                
+            
+                
+                <div class="col">
+                    <a href="#" class="text-decoration-none">
+                        <div class="card category-card rounded-4">
+                            <img src="c:\Users\Mercanlar\Desktop\katalog\286a04a6-3a03-4364-973d-caac30e88b0b.jpg" alt="Kadın Ayakkabıları">
+                            <div class="card-body">
+                                <h5 class="card-title">KADIN KOLEKSİYONU</h5>
+                                <p class="card-text">Zarafet ve güncel trendler.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="#" class="text-decoration-none">
+                        <div class="card category-card rounded-4">
+                            <img src="c:\Users\Mercanlar\Desktop\katalog\2145ccbb-c341-40b5-84e0-d557e403378d.jpg." alt="Bot ve Çizme">
+                            <div class="card-body">
+                                <h5 class="card-title">BOT & ÇİZME</h5>
+                                <p class="card-text">Kış sezonunun vazgeçilmezleri.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 display-4 text-dark">Bize Ulaşın</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row text-center bg-white p-5 rounded-4 shadow-lg">
+                        <div class="col-md-4 mb-4">
+                            <i class="fas fa-map-marker-alt fa-3x text-danger mb-3"></i>
+                            <h4 class="fw-bold">Adres</h4>
+                            <p>Beyazıt Toptan Merkezi, İstanbul</p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <i class="fas fa-phone-alt fa-3x text-danger mb-3"></i>
+                            <h4 class="fw-bold">Telefon</h4>
+                            <p>+90 538 064 51 92</p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <i class="fas fa-envelope fa-3x text-danger mb-3"></i>
+                            <h4 class="fw-bold">E-posta</h4>
+                            <p>yunusayin17@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5>Metro Ayakkabı</h5>
+                    <p>Konfor, stil ve kalitenin buluşma noktası.</p>
+                    <div class="social-icons">
+                        <a href="https://api.whatsapp.com/send/?phone=905380645192&text&type=phone_number&app_absent=0" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/msstoptanayakkabi?igsh=dzA5ODE4OXNzc2t1" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>İletişim</h5>
+                    <ul>
+                        <li><a href="#kategoriler">Erkek</a></li>
+                        <li><a href="#kategoriler">Kadın</a></li>
+                        <li><a href="#kategoriler">Spor</a></li>
+                        <li><a href="#kategoriler">Çizme</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>Hızlı Erişim</h5>
+                    <ul>
+                        <li><a href="#">Yeni Gelenler</a></li>
+                        <li><a href="#">Hakkımızda</a></li>
+                        <li><a href="#">İade Şartları</a></li>
+                        <li><a href="#">KVKK</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5>Toptan Satış</h5>
+                    <p class="mt-3">Kurumsal veya bayilik talepleriniz için lütfen Toptan Satış Çözümleri sayfamızı ziyaret edin.</p>
+                    <a href="https://ziel06.github.io/MetroBeyazitToptanMerkezi/" class="btn btn-sm btn-outline-danger mt-2 rounded-pill">Toptan Sayfasına Git</a>
+                </div>
+            </div>
+            <div class="bottom-bar mt-4">
+                <p>© 2025 Metro Ayakkabı. Tüm hakları saklıdır. Tasarım & Geliştirme: [Yunus Ayın]</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
